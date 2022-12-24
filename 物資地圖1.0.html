@@ -147,6 +147,20 @@ fetch(url)
     const customers = document.getElementById('customers');
         let html = "<tr><td>"+x[1]+"</td><td>"+x[2]+"</td><td>"+x[3]+"</td><td>"+x[4]+"</td><td>"+x[5]+"</td><td>"+x[6]+"</td><td>"+x[7]+"</td></tr>";
         customers.insertAdjacentHTML("beforeend",html);
+      
+       const address=x[2];
+       const info=x[3];
+       const infe=x[1];
+       const infu=x[6];
+       const infs=x[4];
+       console.log(x[4]);
+       const infn=x[7];
+       const mapurl = hereUrl + "?q=" + address + "&apiKey=" + key;
+       fetch(mapurl)
+          .then(res => res.json())
+          .then(res => {
+          var marker = L.marker([Number(res.items[0].position.lat), Number(res.items[0].position.lng)]).addTo(map);
+          marker.bindPopup("<h2>需求:"+info+"<br>需求單位:"+infe+"<br>聯繫資訊:"+infu+"<br>截止日:"+infs+"<br>
 };
 });
 </script>
