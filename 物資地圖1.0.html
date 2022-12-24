@@ -136,32 +136,18 @@ const key="aFmSdwMSO3DFfE2kvInTlhCHOQPKHYaAXKP2a3K2lkI"
 
 
 fetch(url)
-    .then(res => res.json())
-    .then(res => {
-    const values = res.values;
+  .then(res => res.json())
+  .then(res => {
+    const values = res.values.slice(1);
     //console.log(values);
-    let new_values = values.slice(1); //slice分割
-
-    for (let x of new_values){
-        console.log(x);
-        //console.log(typeof(x)); 可以查看資料類型
-        console.log(x[0]+x[1]);
-        const table = document.getElementById("customers");
-        let html = "<tr><td>"+x[3]+"</td><td>"+x[1]+"</td></tr>"
-        table.insertAdjacentHTML("beforeend",html);
-
-        const address=x[2];
-        const info=x[3];
-        const mapurl = hereUrl + "?q=" + address + "&apiKey=" + key;
-        fetch(mapurl)
-          .then(res => res.json())
-          .then(res => {  
-          //註解: 增加一地圖標記 
-          var marker = L.marker([Number(res.items[0].position.lat), Number(res.items[0].position.lng)]).addTo(map);
-          //註解: 地圖標記增加彈出資訊
-          marker.bindPopup("<h2>"+info+"</h2>");
-    });
-    }
+    for (let x of values){
+    console.log(x);
+    console.log(typeof(x));
+    console.log(x[1]+[2]+x[3]+x[4]+[5]+x[6]+x[7]);
+    const customers = document.getElementById('customers');
+        let html = "<tr><td>"+x[1]+"</td><td>"+x[2]+"</td><td>"+x[3]+"</td><td>"+x[4]+"</td><td>"+x[5]+"</td><td>"+x[6]+"</td><td>"+x[7]+"</td></tr>";
+        customers.insertAdjacentHTML("beforeend",html);
+};
 });
 </script>
 
