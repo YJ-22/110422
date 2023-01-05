@@ -162,7 +162,7 @@ fetch(url)
         table.insertAdjacentHTML("beforeend",html);
 
         const address=x[2];
-        const info="品項："+x[3]+"<br>單位："+x[1]+"<br>地址："+x[2]+"<br>截止日："+x[4]+"<br>備註："+x[7];
+        const info="單位："+x[1]+"<br>地址："+x[2]+"<br>品項："+x[3]+"<br>截止日："+x[4]+"<br>備註："+x[7];
         const mapurl = hereUrl + "?q=" + address + "&apiKey=" + key;
         fetch(mapurl)
           .then(res => res.json())
