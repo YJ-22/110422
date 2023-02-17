@@ -10,14 +10,17 @@
 
 <style>
 
-body {margin:0px;font-family:DFKai-sb; font-size:20px}
+body {margin:0px;font-family:DFKai-SB; font-size:20px; color:#161D15;}
 html {scroll-behavior: smooth;}
+p {margin-left: 80px; margin-right: 80px; font-size: 22px;}
+address {margin-left: 40px; margin-right: 80px; font-size: 22px;}
+
 
 /* 找到 class 名稱為 nav 的標籤, 賦予樣式 */
 .nav {position:fixed; height:100%; width:400px; left:0;}
 
 /* 找到 class 名稱為 area 的標籤, 賦予樣式 */
-.area {position:relative; height:100%; opacity: 50%; margin-left: 400px}
+.area {position:relative; height:100%; opacity: 80%; margin-left: 400px}
 
 /* 找到 id 名稱為 sec1, sec2, sec3, sec5 的標籤, 賦予樣式 */
 #sec1 {background-color: #DBD4C6;}
@@ -85,25 +88,17 @@ a:active {}
 
 <!-- 封面 -->
 <div id="sec1" class="area">
-    <h1> &nbsp 物資地圖</h1>
-    <blockquote>
-     <p>數學科科展主題研究與實作，為整合各方資源的網路開放平台</p>
-    <h2>預期效益</h2>
-    <ul>
-        <li>達到物資流通的效果</li>
-        <li>提供物資需求者發聲的管道</li>
-    </ul>
-    </blockquote>
+    <img src="cover.png" height="100%" alt="物資地圖">
 </div>
 
 <!-- 地圖 -->
 <div id="sec2" class="area">
-    <div id="map"></div>
+    <div id="map"></div>--
 </div>
 
 <!-- 輸入表單 -->
 <div id="sec3" class="area">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD8LaJ11sFm4VgSeky1esj1U5L8c3Zvp4lc70pN05jdDfXZA/viewform?embedded=true" width="100%" height="796" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD8LaJ11sFm4VgSeky1esj1U5L8c3Zvp4lc70pN05jdDfXZA/viewform?embedded=true" width="100%" height="796" frameborder="0" marginheight="0" marginwidth="0">載入中……</iframe>
 </div>
 
 <!-- 需求表格 -->
@@ -125,11 +120,38 @@ a:active {}
 <!-- 說明 -->
 <div id="sec5" class="area">
     <h1> &nbsp 使用說明</h1>
+    <p><b>本地圖包含六個部分，分別為封面、物資地圖、填寫表單、需求列表、使用說明以及作者介紹。</b></p>
+    <p><b>頁面功能說明：</b></p>
+    <p><b>1.左方導覽列</b></p>
+    <p>用以尋找各頁面並移動，點選對應文字的超連結即可；或是利用鼠標下滑來選擇頁面。
+    <p><b>2.物資地圖</b></p>
+    <p>展示需求物資的簡要資料以及地區，在填寫表單過後便會在此地圖上呈現。</p>
+    <p><b>3.填寫表單</b></p>
+    <p>用於填寫物資需求的相關資料，需要的資料有單位名稱、單位地址、需求品項、需求截止日、填寫者稱呼以及聯繫方式。
+該資料在上傳後將會呈現於需求列表以及物資地圖上。</p>
+    <p><b>4.需求列表</b></p>
+    <p>物資需求的詳細資料會以此列表呈現，為物資提供者提供物資資訊以及聯絡方式。</p>
+    <p><b>5.作者介紹</b></p>
+    <p>此頁面用於簡單介紹物資地圖的製作者，如有問題可以使用該頁面提供的Gmail聯絡。</p>
+
 </div>
 
 <!-- 作者介紹頁面 -->
 <div id="sec6" class="area">
     <h1> &nbsp 作者介紹</h1>
+    <br>
+    <p><b>張智雯</b></p>
+    <p>臺東女中二年甲班學生，負責美編設計以及程式協助。</p>
+    <p><b>郭岱倫</b></p>
+    <p>臺東女中二年甲班學生，負責文案設計以及程式協助。</p>
+    <p><b>陳俞臻</b></p>
+    <p>臺東女中二年甲班學生，負責程式撰寫以及文案協助。</p>
+　　<p><b>由衷感謝高嘉宏老師指導網站架設、程式設計以及想法引導。</b></p>
+　　<address><b>
+  　　透過以下gmail帳號聯繫我們：<br></b>
+  　　<a href="mailto:abc@abc.org">Suppliesmapmaker@gmail.com</a>
+　　</address>
+
   </div>
 <script>
 //註解: 設定地圖位置 (經緯度) 與縮放比例, 並將地圖擺放至 id 名稱為 map 的網頁區塊 (div)
