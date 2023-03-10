@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>物資地圖1.0</title>
-<link rel="icon" href="map3.png">
+<link rel="icon" href="mapicon.png">
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="crossorigin=""></script>
@@ -68,6 +68,19 @@ a:active {}
 .area {overflow: auto;}
 #map {height: 100%}
 
+/* 搜尋欄 */
+#myInput {
+  background-image: url("searchicon.png"); /* Add a search icon to input */
+  background-position: -3px -3px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 18px;
+  font-family: TheNewTimesRomen;
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+}
+
+
 </style>
 
 </head>
@@ -105,7 +118,7 @@ a:active {}
 <div id="sec4" class="area">
   <h1> &nbsp 需求列表</h1>
   <blockquote>
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜尋...">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
   </blockquote>
   <blockquote>
     <table id="customers">
@@ -152,10 +165,11 @@ a:active {}
 　　<p><b>由衷感謝高嘉宏老師指導網站架設、程式設計以及想法引導。</b></p>
 　　<address><b>
   　　透過以下gmail帳號聯繫我們：<br></b>
-  　　<a href="mailto:Suppliesmapmaker@gmail.com">Suppliesmapmaker@gmail.com</a>
+  　　<a href="mailto:abc@abc.org">Suppliesmapmaker@gmail.com</a>
 　　</address>
 
   </div>
+
 <script>
 //註解: 設定地圖位置 (經緯度) 與縮放比例, 並將地圖擺放至 id 名稱為 map 的網頁區塊 (div)
 var map = L.map('map').setView([22.760769, 121.153961], 15);
@@ -180,7 +194,6 @@ const url = baseUrl + "?" + q;
 const hereUrl="https://geocode.search.hereapi.com/v1/geocode";
 const key="aFmSdwMSO3DFfE2kvInTlhCHOQPKHYaAXKP2a3K2lkI"
 
-
 fetch(url)
     .then(res => res.json())
     .then(res => {
@@ -196,14 +209,11 @@ fetch(url)
         const address=x[2];
         let lat=0;
         let lng=0;
-
+        const info="單位："+x[1]+"<br>地址："+x[2]+"<br>品項："+x[3]+"<br>截止日："+x[4]+"<br>備註："+x[7];
+      
         var dt = new Date(x[4]);
         var localTime = dt.toLocaleString();
 
-        const info="單位："+x[1]+"<br>地址："+x[2]+"<br>品項："+x[3]+"<br>截止日："+localTime+"<br>備註："+x[7];
-
-
-        
         const mapurl = hereUrl + "?q=" + address + "&apiKey=" + key;
         fetch(mapurl)
           .then(res => res.json())
@@ -262,7 +272,7 @@ function myFunction() {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
-        continue;        
+        continue;
       } else {
         tr[i].style.display = "none";
       }
@@ -272,24 +282,23 @@ function myFunction() {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
-        continue;        
+        continue;
       } else {
         tr[i].style.display = "none";
       }
-    }  
+    }
     td = tr[i].getElementsByTagName("td")[4];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
-        continue;        
+        continue;
       } else {
         tr[i].style.display = "none";
       }
-    }               
+    }
   }
 }
-
 
 </script>
 
